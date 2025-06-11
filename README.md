@@ -2,7 +2,6 @@
 
 This Python utility is designed to **automatically restart a specified Windows service on a daily schedule**, typically using **Windows Task Scheduler**. It provides:
 
-- Secure credential management via **Keeper Secrets Manager**
 - Daily **logging** with timestamped log files
 - Optional **email notifications** (success/failure) via SMTP
 - Environment-based configuration using a `.env` file
@@ -14,7 +13,6 @@ This Python utility is designed to **automatically restart a specified Windows s
 
 - **Automated Service Restart**: Uses `sc stop` and `sc start` to restart any configured Windows service.
 - **Centralized Logging**: Uses a shared logger to log to daily `.log` files with timestamps.
-- **Secure Credentials**: SMTP credentials are retrieved from Keeper Secrets Manager, never stored in plain text.
 - **Email Alerts**: Sends success/failure alerts to designated recipients.
 - **Environment-Driven Config**: Easily customizable via `.env`.
 
@@ -24,22 +22,12 @@ This Python utility is designed to **automatically restart a specified Windows s
 
 ```env
 PROGRAM_NAME=Restart-MSIA-Service
-SHARED_LIBRARIES=E:\Path\To\SharedLibraries
-KSM_CONFIG=E:\Path\To\ksm-config.json
+SHARED_LIBRARIES=E:\cayenta\VersantPowerApps\SharedLibraries
 
-SERVICE_NAME=MSIA
-EMAIL_FROM=your_email@versantpower.com
-EMAIL_TO=ami-group@versantpower.com
-SMTP_SERVER=smtp.office365.com
-SMTP_PORT=587
-SMTP_CREDENTIAL_KEEPER_ID=email_smtp_creds
-
+SERVICE_NAME=Apache Tomcat 9.0 CayentaMultispeak
+EMAIL_TO=amioperators@versantpower.com
 LOG_DIRECTORY=C:\Scripts\Log
 ````
-
-> ⚠️ **Note**: Be sure to exclude `.env` from version control (e.g., add to `.gitignore`).
-
----
 
 ##  How to Use
 
@@ -56,19 +44,12 @@ LOG_DIRECTORY=C:\Scripts\Log
 ##  Security Notes
 
 * Credentials are not stored in plain text.
-* Requires a valid [Keeper Secrets Manager](https://docs.keeper.io/secrets-manager/) configuration file (`ksm-config.json`).
 
 ---
 
 ## Dependencies
 
 * [python-dotenv](https://pypi.org/project/python-dotenv/)
-* [keeper-secrets-manager-core](https://pypi.org/project/keeper-secrets-manager-core/)
 * Internal modules: `SharedLogger`, `O365Manager`
 
-Install dependencies via pip:
-
-```bash
-pip install python-dotenv keeper-secrets-manager-core
-```
 
