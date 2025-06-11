@@ -31,9 +31,6 @@ sys.path.append(os.getenv('SHARED_LIBRARIES'))
 from SharedLogger import createLogger
 from O365Manager import sendEmail
 
-from keeper_secrets_manager_core import SecretsManager
-from keeper_secrets_manager_core.storage import FileKeyValueStorage
-
 ############
 #
 #  Setup Logging
@@ -49,31 +46,12 @@ logger.info(f"{program_name} started")
 
 ############
 #
-#  Retrieve SMTP Credentials from Keeper
-#
-############
-
-try:
-    secrets_manager = SecretsManager(config=FileKeyValueStorage(os.getenv('KSM_CONFIG')))
-    smtp_record = secrets_manager.get_secrets([os.getenv('SMTP_CREDENTIAL_KEEPER_ID')])[0]
-    smtp_user = smtp_record.field('login', single=True)
-    smtp_password = smtp_record.field('password', single=True)
-    logger.info("Retrieved SMTP credentials from Keeper.")
-except Exception as e:
-    logger.error(f"Failed to retrieve credentials from Keeper: {e}")
-    sys.exit(1)
-
-############
-#
 #  Config Variables
 #
 ############
 
 SERVICE_NAME = os.getenv('SERVICE_NAME')
-EMAIL_FROM = os.getenv('EMAIL_FROM')
 EMAIL_TO = os.getenv('EMAIL_TO')
-SMTP_SERVER = os.getenv('SMTP_SERVER')
-SMTP_PORT = int(os.getenv('SMTP_PORT'))
 
 ############
 #
@@ -107,11 +85,7 @@ def send_notification(subject, body):
         sendEmail(
             recipients=[EMAIL_TO],
             subject=subject,
-            body=body,
-            username=smtp_user,
-            password=smtp_password,
-            smtp_server=SMTP_SERVER,
-            smtp_port=SMTP_PORT
+            body=body
         )
         logger.info("Email sent successfully.")
     except Exception as e:
