@@ -1,4 +1,4 @@
-# Windows Service Auto-Restarter
+48# Windows Service Auto-Restarter
 
 This Python utility is designed to **automatically restart a specified Windows service on a daily schedule**, typically using **Windows Task Scheduler**. It provides:
 
@@ -17,18 +17,6 @@ This Python utility is designed to **automatically restart a specified Windows s
 - **Secure Credentials**: SMTP credentials are retrieved from Keeper Secrets Manager, never stored in plain text.
 - **Email Alerts**: Sends success/failure alerts to designated recipients.
 - **Environment-Driven Config**: Easily customizable via `.env`.
-
----
-
-## 📁 Project Structure
-
-
-
-SERVICES_RESTART.py         # Main script
-.env                       # Environment config (not committed to repo)
-README.md                  # This file
-
-
 
 ---
 
