@@ -1,4 +1,4 @@
-48# Windows Service Auto-Restarter
+# Windows Service Auto-Restarter
 
 This Python utility is designed to **automatically restart a specified Windows service on a daily schedule**, typically using **Windows Task Scheduler**. It provides:
 
