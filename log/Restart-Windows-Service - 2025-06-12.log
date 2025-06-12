@@ -1,0 +1,6 @@
+10:00:05 - INFO: Restart-Windows-Service started
+10:00:05 - INFO: SERVICE_NAME resolved to: Spooler
+10:00:05 - INFO: EMAIL_TO resolved to: jmcginnes@versantpower.com
+10:00:05 - INFO: [2025-06-12 10:00:05] SUCCESS: Spooler restarted on MECISDEV01
+10:00:08 - INFO: Email sent successfully.
+10:00:08 - INFO: Restart-Windows-Service finished

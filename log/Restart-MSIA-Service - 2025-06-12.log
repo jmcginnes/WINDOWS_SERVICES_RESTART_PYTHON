@@ -1,0 +1,32 @@
+09:37:03 - INFO: Restart-MSIA-Service started
+09:37:03 - ERROR: [2025-06-12 09:37:03] ERROR: Failed to restart CayentaMultispeak on MECISDEV01
+Reason: Command '['sc', 'stop', 'CayentaMultispeak']' returned non-zero exit status 5.
+09:37:03 - INFO: Email sent successfully.
+09:37:03 - INFO: Restart-MSIA-Service finished
+09:43:04 - INFO: Restart-MSIA-Service started
+09:43:04 - INFO: SERVICE_NAME resolved to: CayentaMultispeak
+09:43:04 - INFO: EMAIL_TO resolved to: john.mcginnes@versantpower.com
+09:43:04 - ERROR: [2025-06-12 09:43:04] ERROR: Failed to restart CayentaMultispeak on MECISDEV01
+Reason: Command '['sc', 'stop', 'CayentaMultispeak']' returned non-zero exit status 5.
+09:43:05 - ERROR: Failed to send email notification: Access denied to configuration file client-config.json.
+09:43:05 - INFO: Restart-MSIA-Service finished
+09:43:53 - INFO: Restart-MSIA-Service started
+09:43:53 - INFO: SERVICE_NAME resolved to: CayentaMultispeak
+09:43:53 - INFO: EMAIL_TO resolved to: jmcginnes@versantpower.com
+09:43:54 - ERROR: [2025-06-12 09:43:53] ERROR: Failed to restart CayentaMultispeak on MECISDEV01
+Reason: Command '['sc', 'stop', 'CayentaMultispeak']' returned non-zero exit status 5.
+09:43:54 - ERROR: Failed to send email notification: Access denied to configuration file client-config.json.
+09:43:54 - INFO: Restart-MSIA-Service finished
+09:46:05 - INFO: Restart-MSIA-Service started
+09:46:05 - INFO: SERVICE_NAME resolved to: CayentaMultispeak
+09:46:05 - INFO: EMAIL_TO resolved to: jmcginnes@versantpower.com
+09:46:05 - ERROR: [2025-06-12 09:46:05] ERROR: Failed to restart CayentaMultispeak on MECISDEV01
+Reason: Command '['sc', 'stop', 'CayentaMultispeak']' returned non-zero exit status 5.
+09:46:07 - INFO: Email sent successfully.
+09:46:07 - INFO: Restart-MSIA-Service finished
+09:56:04 - INFO: Restart-MSIA-Service started
+09:56:04 - INFO: SERVICE_NAME resolved to: Spooler
+09:56:04 - INFO: EMAIL_TO resolved to: jmcginnes@versantpower.com
+09:56:04 - INFO: [2025-06-12 09:56:04] SUCCESS: Spooler restarted on MECISDEV01
+09:56:07 - INFO: Email sent successfully.
+09:56:07 - INFO: Restart-MSIA-Service finished

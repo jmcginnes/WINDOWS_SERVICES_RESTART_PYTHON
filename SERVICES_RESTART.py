@@ -17,8 +17,8 @@ from dotenv import load_dotenv
 #
 ############
 
-envFile = open('.env', 'r')
-load_dotenv(stream=envFile)
+load_dotenv(dotenv_path='.env')
+print(f"LOG_DIRECTORY: {os.getenv('LOG_DIRECTORY')}")
 
 ############
 #
@@ -40,8 +40,10 @@ from O365Manager import sendEmail
 program_name = os.getenv('PROGRAM_NAME', 'RestartService')
 formatted_date = datetime.now().strftime("%Y-%m-%d")
 log_dir = os.getenv('LOG_DIRECTORY', os.getcwd())
-
-logger = createLogger(os.path.join(log_dir, f"{program_name} - {formatted_date}.log"))
+print(f"log_dir resolved to: {log_dir}")
+log_file_name = f"{program_name} - {formatted_date}.log"
+full_log_path = os.path.join(log_dir, '') 
+logger = createLogger(full_log_path, log_file_name)
 logger.info(f"{program_name} started")
 
 ############
@@ -52,6 +54,9 @@ logger.info(f"{program_name} started")
 
 SERVICE_NAME = os.getenv('SERVICE_NAME')
 EMAIL_TO = os.getenv('EMAIL_TO')
+
+logger.info(f"SERVICE_NAME resolved to: {SERVICE_NAME}")
+logger.info(f"EMAIL_TO resolved to: {EMAIL_TO}")
 
 ############
 #
@@ -81,15 +86,16 @@ def restart_service(name):
 ############
 
 def send_notification(subject, body):
-    try:
-        sendEmail(
-            recipients=[EMAIL_TO],
-            subject=subject,
-            body=body
-        )
+    result = sendEmail(
+        to=EMAIL_TO,
+        subject=subject,
+        body=body
+    )
+    if result is True:
         logger.info("Email sent successfully.")
-    except Exception as e:
-        logger.error(f"Failed to send email notification: {e}")
+    else:
+        logger.error(f"Failed to send email notification: {result}")
+
 
 ############
 #
